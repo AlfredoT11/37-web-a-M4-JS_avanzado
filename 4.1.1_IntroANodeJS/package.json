@@ -1,0 +1,16 @@
+{
+  "name": "4.1.1_introanodejs",
+  "version": "1.0.0",
+  "description": "Mi primer proyecto con Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "iniciarAplicacion": "node index.js",
+    "iniciarNodemon": "nodemon index.js",
+    "dev": "node index.js"
+  },
+  "author": "Tona Díaz",
+  "license": "ISC",
+  "dependencies": {
+    "convert-number-to-words": "^1.0.3"
+  }
+}
