@@ -7,5 +7,8 @@ function restar(a, b){
 }
 
 module.exports = {
-    
+    //sumar: sumar,
+    //restar: restar
+    sumar,
+    restar
 }

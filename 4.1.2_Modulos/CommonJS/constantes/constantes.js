@@ -6,6 +6,10 @@ const gravedades = {
     }
 }
 
+module.exports = {
+    gravedades
+}
+
 console.log(gravedades.tierra);
 console.log(gravedades.marte);
 console.log(gravedades.planetasGrandes.jupiter);
