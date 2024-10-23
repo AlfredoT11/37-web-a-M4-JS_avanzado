@@ -1,12 +1,12 @@
-function suma(a=1, b=1){
+function suma(a = 1, b = 1) {
     return a + b;
 }
 
-function resta(a=1, b=1){
+function resta(a = 1, b = 1) {
     return a - b;
 }
 
-function multiplicacion(a=1, b=1){
+function multiplicacion(a = 1, b = 1) {
     return a * b;
 }
 
@@ -19,7 +19,7 @@ console.log(resta());
 // el valor por defecto. 
 console.log(suma(undefined, 0));
 
-function sumar2Operaciones(operacion1, operacion2, parametrosOperacion1={a: 1, b: 1}, parametrosOperacion2={a: 1, b:1}){
+function sumar2Operaciones(operacion1, operacion2, parametrosOperacion1 = { a: 1, b: 1 }, parametrosOperacion2 = { a: 1, b: 1 }) {
     return operacion1(parametrosOperacion1.a, parametrosOperacion1.b) + operacion2(parametrosOperacion2.a, parametrosOperacion2.b);
 }
 
@@ -37,7 +37,7 @@ console.log(`Suma con resta: ${sumar2Operaciones(suma, resta, parametros1, param
 console.log(`Multiplicación con resta: ${sumar2Operaciones(multiplicacion, resta)}`);
 console.log(`Resta con resta: ${sumar2Operaciones(resta, resta)}`);
 
-function saludarDeDia(nombre){
+function saludarDeDia(nombre) {
     console.log(`¡Buenos días ${nombre}!`);
 }
 
@@ -46,15 +46,19 @@ const saludarDeNoche = (nombre) => {
     console.log(`¡Buenos noches ${nombre}!`);
 }
 
-function saludar(saludarCallback){
+function saludar(saludarCallback) {
     let nombre = 'Pedro';
     saludarCallback(nombre);
 }
 
-let hora = 19;
-if(hora < 18){
+let hora = 14;
+if (hora < 12) {
     saludar(saludarDeDia);
-}else{
-    saludar(saludarDeNoche);
+} else if (hora < 18) {
+    saludar((nombre) => {
+        console.log(`¡Buenos tardes ${nombre}!`);
+    });
+} else {
+    saludar(saludarDeNoche)
 }
 
