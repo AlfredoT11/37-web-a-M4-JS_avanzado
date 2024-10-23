@@ -19,11 +19,42 @@ console.log(resta());
 // el valor por defecto. 
 console.log(suma(undefined, 0));
 
-function sumar2Operaciones(operacion1, operacion2){
-    return operacion1() + operacion2();
+function sumar2Operaciones(operacion1, operacion2, parametrosOperacion1={a: 1, b: 1}, parametrosOperacion2={a: 1, b:1}){
+    return operacion1(parametrosOperacion1.a, parametrosOperacion1.b) + operacion2(parametrosOperacion2.a, parametrosOperacion2.b);
 }
 
-console.log(`Suma con resta: ${sumar2Operaciones(suma, resta)}`);
+const parametros1 = {
+    a: 5,
+    b: 8
+}
+
+const parametros2 = {
+    a: 10,
+    b: 2
+}
+
+console.log(`Suma con resta: ${sumar2Operaciones(suma, resta, parametros1, parametros2)}`);
 console.log(`Multiplicación con resta: ${sumar2Operaciones(multiplicacion, resta)}`);
 console.log(`Resta con resta: ${sumar2Operaciones(resta, resta)}`);
+
+function saludarDeDia(nombre){
+    console.log(`¡Buenos días ${nombre}!`);
+}
+
+// Función flecha o función anónima
+const saludarDeNoche = (nombre) => {
+    console.log(`¡Buenos noches ${nombre}!`);
+}
+
+function saludar(saludarCallback){
+    let nombre = 'Pedro';
+    saludarCallback(nombre);
+}
+
+let hora = 19;
+if(hora < 18){
+    saludar(saludarDeDia);
+}else{
+    saludar(saludarDeNoche);
+}
 
