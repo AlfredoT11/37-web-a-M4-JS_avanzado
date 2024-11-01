@@ -31,7 +31,22 @@ async function registrarPersona(e){
         alert('Ocurrió un error');
         console.log(error);
     }
+}
 
+async function obtenerInformacionDeUnContacto(e){
+    e.preventDefault();
+
+    let idContacto = document.getElementById("idContactoBuscar").value;
+
+    try{
+        let respuesta = await fetch(`${URL_BASE}/contacto/${idContacto}`, {mode: 'no-cors'});
+        let respuestaJSON = await respuesta.json();
+        console.log(respuestaJSON);
+    }catch(error){
+        alert('Ocurrió un error');
+        console.log(error);
+    }
 }
 
 document.getElementById("registrarPersonaButton").addEventListener("click", (e) => {registrarPersona(e)});
+document.getElementById("buscarPersonaButton").addEventListener("click", (e) => {obtenerInformacionDeUnContacto(e)});
