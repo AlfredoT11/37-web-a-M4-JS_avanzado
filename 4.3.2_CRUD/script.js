@@ -12,9 +12,9 @@ async function registrarPersona(e){
     console.log(`${nombre}, ${apellido}, ${telefono}, ${email}`);
 
     try{
-        let respuesta = await fetch(`${URL_BASE}/unicorns`, {
+        let respuesta = await fetch(`${URL_BASE}/contacto`, {
             headers: {
-                'Content-Type': 'application/json; charset=UTF-8'
+                'Content-Type': 'application/json'
             },
             method: 'POST',
             body: JSON.stringify({
@@ -22,8 +22,7 @@ async function registrarPersona(e){
                 apellido: apellido,
                 telefono: telefono,
                 email: email
-            }),
-            mode: 'no-cors'
+            })
         });
         let respuestaJSON = await respuesta.json();
         console.log(respuestaJSON);
